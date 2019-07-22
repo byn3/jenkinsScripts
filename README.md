@@ -20,6 +20,8 @@ The function parseURL fetches the data from the Jenkins API and formats it where
 I convert the miliseconds to minutes and return mack that one workspace's max and avg, along with printing an array of all build times.
 
 If you want more data from the Jenkins API, add those key values into the suffix variable, located right after the open command.
+If you want to scan different versions to get different data, just change the global variable <version>'s value.
+Uncomment the last line to write down the data and version into a file name of your choice.
 
 #### Potential Bugs:
 I made this real fast so there are probably bugs, but for now it seems fine AND IT WORKS ON MY MACHINE (this is supposed to be a meta joke).
