@@ -1,12 +1,12 @@
 # jenkinsScripts
 DevOps
 
-# Wut do?
-Get the max and averages of your Jenkins builds. I'm a pleb without access to download and manage plugins and I needed this info. 
+# Wut dis script do?
+Get the max and averages of your Jenkins builds. 
 
 ## Prerequisites
 * Python
-* A text file containing all the URLs of the builds or projects that you want to see
+* A text file containing all the URLs of the builds or projects that you want to see data from
 
 Do the whole cloning and cd into the directory, then run this by typing python3 ./scripts.py.  
 
@@ -29,3 +29,7 @@ I convert the miliseconds to minutes and return mack that one workspace's max an
 ### Potential Bugs:
 I made this real fast so there are probably bugs, but for now it seems fine AND IT WORKS ON MY MACHINE (this is supposed to be a meta joke).
 If there are any issues that is your fault though. =)
+
+#### Why did I make dis?
+I'm a pleb without access to download and manage plugins and I needed this info for my project. 
+Also scripting is fun.
