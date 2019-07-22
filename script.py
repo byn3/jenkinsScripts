@@ -48,15 +48,23 @@ def scanBirstJenkins():
     totalAvg = 0
     counter = 0
 
+    maxArray = []
+    avgArray = []
+
     with open('seleniumURLS.txt') as fp:
         for eachURL in fp:
             suffix = "api/json?tree=builds[id,duration]"
             eachURL = eachURL + suffix
             eachURL = eachURL.replace("\n", "")
 
-            print('\n', eachURL)
+            eachURL = eachURL.replace("7.1.4", version)
+
+            print("\n", eachURL)
             try:
                 parseURLValues = parseURL(eachURL)
+
+                maxArray.append(parseURLValues[0])
+                avgArray.append(round(parseURLValues[1], 3))
 
                 if biggestMax < parseURLValues[0]:
                     biggestMax = parseURLValues[0]
@@ -70,9 +78,13 @@ def scanBirstJenkins():
     except:
         totalAvg = 0
 
+    print("\n\n~~DONE SCANNING ALL BUILDS~~ ~~DONE SCANNING ALL BUILDS~~ ~~DONE SCANNING ALL BUILDS~~")
+    print("PLEASE FOLLOW ME ON SOCIAL MEDIA\n@BynLeung and uhhh other stuff.\n\n")
     print("LONGEST BUILD (mins): ", round(biggestMax, 3))
     print("TOTAL AVG RUNTIME (mins): ", round(totalAvg, 3))
-
+    print("SORTED ARRAY OF MAXXXES: ", sorted(maxArray))
+    print("SORTED ARRAY OF AVERAGES: ", sorted(avgArray))
+    
 
 scanBirstJenkins()
 
