@@ -31,5 +31,4 @@ I made this real fast so there are probably bugs, but for now it seems fine AND 
 If there are any issues that is your fault though. =)
 
 #### Why did I make dis?
-I'm a pleb without access to download and manage plugins and I needed this info for my project. 
-Also scripting is fun.
+Scripting is fun. Why not?

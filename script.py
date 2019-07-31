@@ -1,16 +1,22 @@
 import requests
 import json
+import sys
 #import datetime
 
 """ 
 script that scans and shows the avg and max build times of jenkins jobs and projects
 I have no access to manage plugins so i cant install nice plugins that already do this
 therefore i made my own script. you need to add the urls of the apps to a file.
-mine was named seleniumURLS.txt on line 51
+mine was named seleniumURLS.txt on the line with open file
 """
 
 version = "7.1.4"
-
+try:
+    if sys.argv[1]:
+        print("You inputted version : ", sys.argv[1])
+        version = sys.argv[1]
+except:
+    pass
 
 def parseURL(url):
     r = requests.get(url)
@@ -29,7 +35,7 @@ def parseURL(url):
     for each in timeArray:
         if each > maxx:
             maxx = each
-            avg += each
+        avg += each
 
     try:
         avg /= len(timeArray)
@@ -51,7 +57,7 @@ def scanBirstJenkins():
     maxArray = []
     avgArray = []
 
-    with open('seleniumURLS.txt') as fp:
+    with open('seleniumURLS2.txt') as fp:
         for eachURL in fp:
             suffix = "api/json?tree=builds[id,duration]"
             eachURL = eachURL + suffix
@@ -64,7 +70,7 @@ def scanBirstJenkins():
                 parseURLValues = parseURL(eachURL)
 
                 maxArray.append(parseURLValues[0])
-                avgArray.append(round(parseURLValues[1], 3))
+                avgArray.append(round(parseURLValues[1], 4))
 
                 if biggestMax < parseURLValues[0]:
                     biggestMax = parseURLValues[0]
@@ -74,6 +80,8 @@ def scanBirstJenkins():
             except:
                 continue
     try:
+        print("TotalAVG: ", totalAvg)
+        print("COUNTER: ", counter)
         totalAvg /= counter
     except:
         totalAvg = 0
